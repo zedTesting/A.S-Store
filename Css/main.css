@@ -73,15 +73,32 @@ p {
 }
 a.scrol {
     position: fixed;
+    z-index: 15;
     right: 15px;
     bottom: 20px;
     padding: 12px;
     background-color: var(--mainColor);
     border-radius: 10px;
+    cursor: pointer;
+    display: none;
+    animation: btnscroll 1s;
 }
 a.scrol i {
     color: white;
     font-size: 20px;
+}
+@keyframes btnscroll {
+
+    0%{
+        background-color: #c3143240;
+    }
+    50% {
+        background-color: #c314329c;
+    }
+    100% {
+        background-color: var(--mainColor);
+    }
+
 }
 /* End Global Rules */
 
@@ -169,7 +186,7 @@ h3.main-header::after {
 }
 .header .container ul li {
     cursor: pointer;
-    padding: 20px;
+    /* padding: 20px; */
     position: relative;
     overflow: hidden;
     transition: var(--varTrans);
@@ -190,11 +207,13 @@ h3.main-header::after {
 .header .container ul li a {
     text-decoration: none;
     color: black;
+    padding: 20px;
+    display: block;
 }
 
 .header .container .nav i {
     font-size: 20px;
-    padding-left: 20px;
+    margin-left: 20px;
     cursor: pointer;
 }
 .header .container .nav i.fa-bars {
@@ -204,14 +223,16 @@ h3.main-header::after {
 
 @media (max-width: 767px) {
     .header .container ul {
-        display: none;
+        display: block;
         background-color: rgb(6 6 6 / 85%);
         position: absolute;
         flex-direction: column;
         top: 58px;
-        right: 0;
+        right: 900px;
         z-index: 1;
         width: 100%;
+        transition: var(--varTrans);
+        overflow: hidden;
     }
     .header .container ul li a {
         color: white !important;  
@@ -223,9 +244,6 @@ h3.main-header::after {
         margin-top: 20px;
     }
     .header .container .nav i.fa-bars {
-        display: block;
-    }
-    .header .container .nav i.fa-bars:hover + ul {
         display: block;
     }
 }
@@ -379,7 +397,6 @@ h3.main-header::after {
         margin-bottom: 20px;
     }
 }
-
 /* End offer */
 
 
@@ -424,8 +441,6 @@ h3.main-header::after {
 .review .container .user h4 {
     margin-top: 8px;
 }
-
-
 @media (max-width: 991px) {
     .review .container {
         flex-wrap: wrap;
@@ -436,8 +451,6 @@ h3.main-header::after {
     }
     
 }
-
-
 @media (max-width: 767px) {
     .review .container {
         flex-direction: column;
@@ -468,8 +481,6 @@ h3.main-header::after {
     filter: none;
     transform: skewX(10deg) rotate(5deg);
 }
-
-
 /* End brand */
 
 
@@ -487,7 +498,6 @@ h3.main-header::after {
     padding-bottom: 20px;
     border-bottom: 1px solid white;
 }
-
 .footer .container .our-app {
     flex-basis: 25%;
 }
@@ -498,11 +508,9 @@ h3.main-header::after {
 .footer .container .our-app .image-app {
     display: flex;
 }
-
 .footer .container .our-app .image-app img {
     width: 50%;
 }
-
 .footer .container .inf {
     flex: 1;
     text-align: center;
@@ -543,9 +551,14 @@ h4 {
 .footer p {
     text-align: center;
     margin-top: 20px;
-    /* padding-bottom: 20px; */
 }
-
+.footer .follow a {
+    text-decoration: none;
+    color: inherit;
+}
+.footer .follow a:hover {
+    color: var(--mainColor);
+}
 
 @media (max-width: 767px) {
     .footer .container {
